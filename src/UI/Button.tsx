@@ -1,10 +1,11 @@
-import React from "react";
+import React, {MouseEvent} from "react";
 import styled, {css} from 'styled-components';
 
-export interface ButtonProps {
+type ButtonProps = {
     type: 'submit'|'reset'|'button',
-    disabled: boolean,
-    clickHandler: () => {},
+    name: string,
+    disabled?: boolean,
+    clickHandler: (event: MouseEvent<HTMLButtonElement>) => void,
     children: React.ReactNode
 }
 
@@ -44,8 +45,14 @@ const StyledButton = styled.button`
 `
 
 
-const Button: React.FC<ButtonProps> = (props) => {
-    return <StyledButton type={props.type} onClick={props.clickHandler} disabled={props.disabled}>{props.children}</StyledButton>
+const Button: React.FC<ButtonProps> = ({
+        type,
+        name,
+        children,
+        clickHandler,
+        disabled = false
+    }) => {
+    return <StyledButton type={type} name={name} onClick={clickHandler} disabled={disabled}>{children}</StyledButton>
 }
 
 

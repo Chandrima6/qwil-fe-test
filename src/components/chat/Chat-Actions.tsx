@@ -1,15 +1,20 @@
-import React, {Fragment} from "react";
+import React, {MouseEvent} from "react";
 import {CHAT_TYPE} from "../../constants/chat-type";
 import Dropdown from "../../UI/Dropdown";
+import Button from "../../UI/Button";
+import styles from "./Chat-Actions.module.css"
 
 const ChatActions = () => {
     const chatState = CHAT_TYPE[0].value;
-    const selectChatStateListener = (value: string) => {
+    const selectChatTypeListener = (value: string) => {
         console.log(value);
     }
-    return <Fragment>
-        <Dropdown id="chat-state" label="select chat state" value={chatState} onChange={selectChatStateListener} options={CHAT_TYPE}></Dropdown>
-    </Fragment>
+    const startNewChatHandler = (event: MouseEvent<HTMLButtonElement>) => {}
+
+    return <div className={styles['chat-actions']}>
+        <Dropdown id="chat-state" value={chatState} onChange={selectChatTypeListener} options={CHAT_TYPE}></Dropdown>
+        <Button type="button" name="new-chat" clickHandler={startNewChatHandler}>New Chat</Button>
+    </div>
 }
 
 export default ChatActions

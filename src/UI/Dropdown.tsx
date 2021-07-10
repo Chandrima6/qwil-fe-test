@@ -2,14 +2,14 @@ import React, {ChangeEvent} from 'react';
 import styled from 'styled-components';
 import {useState} from 'react';
 
-export interface DropdownProps {
+type DropdownProps = {
     id: string,
-    label: string,
+    label?: string,
     options: OptionsProps[],
     value: string,
     onChange: (value: string) => void
 }
-export interface OptionsProps {
+type OptionsProps = {
     id: string,
     value: string
 }
@@ -20,7 +20,6 @@ const StyledFormControl = styled.section`
     padding: 10px;
     border: 1px solid #0b0909;
     border-radius: 5px;
-    width: 76%;
   }
 `
 
