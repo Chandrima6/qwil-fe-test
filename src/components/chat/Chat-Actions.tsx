@@ -1,13 +1,18 @@
 import React, {MouseEvent} from "react";
-import {CHAT_TYPE} from "../../constants/chat-type";
+import {CHAT_TYPE} from "../../constants/constants";
 import Dropdown from "../../UI/Dropdown";
 import Button from "../../UI/Button";
 import styles from "./Chat-Actions.module.css"
 
-const ChatActions = () => {
+type ChatActionProps = {
+    onAction: (action: {type: 'filter' | 'add', payload: string}) => void
+}
+
+const ChatActions: React.FC<ChatActionProps> = (props) => {
     const chatState = CHAT_TYPE[0].value;
     const selectChatTypeListener = (value: string) => {
         console.log(value);
+        props.onAction({type: 'filter', payload: value})
     }
     const startNewChatHandler = (event: MouseEvent<HTMLButtonElement>) => {}
 
