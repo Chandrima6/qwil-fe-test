@@ -3,6 +3,7 @@ import ChatList from "./Chat-List";
 import ChatDetails from "./Chat-Details";
 import Nav from "../Nav";
 import React, {useState} from "react";
+import {ChatListContextProvider} from "../../store/Chat-List-context";
 
 const ChatContainer = () => {
     const [showList, setShowList] = useState(false);
@@ -14,8 +15,10 @@ const ChatContainer = () => {
     }
     return <Card width="auto" direction="row">
         <Nav onClickNavItem={clickNavItemHandler}/>
-        {showList && <ChatList />}
-        {showDetails && <ChatDetails />}
+        <ChatListContextProvider>
+            {showList && <ChatList />}
+            {showDetails && <ChatDetails />}
+        </ChatListContextProvider>
     </Card>
 }
 
