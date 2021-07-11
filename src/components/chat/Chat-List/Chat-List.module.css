@@ -12,3 +12,7 @@
 .chat-details h2 {
     margin: 0px;
 }
+.warn {
+    color: yellow;
+    align-self: center;
+}

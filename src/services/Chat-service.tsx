@@ -1,39 +1,28 @@
-import {of} from 'rxjs'
-import { ajax } from 'rxjs/ajax'
+import {Observable, of} from 'rxjs'
+import {ajax} from 'rxjs/ajax'
 import { map, catchError } from 'rxjs/operators'
 import {BASE_URL_DEVELOP} from "../constants/constants";
-
-interface IMessage {
-    authorName: string,
-    authorId: string,
-    content: string,
-    timestamp: number
-}
-interface IChat {
-    id: string,
-    title: string,
-    message: IMessage,
-    archived: boolean,
-    participants: []
-}
-interface IAvatar {
-    id: string,
-    url: URL
-}
+import {IChat} from "../models/chat.model";
+import {IAvatar, IModifiedAvatar} from "../models/avatar.model";
 
 export const chatsObservable = ajax.getJSON<IChat[]>(BASE_URL_DEVELOP + '/chats')
     .pipe(
-        map((response) => response),
-        catchError(error => of(error))
+        map((response) => {
+            console.log(response)
+            return response
+        }),
+        catchError(error => {
+            return of(error)
+        })
     )
 
-export const avatarsObservable = ajax.getJSON<IAvatar[]>(BASE_URL_DEVELOP + '/avatars')
+export const avatarsObservable: Observable<IModifiedAvatar> = ajax.getJSON<IAvatar[]>(BASE_URL_DEVELOP + '/avatars')
     .pipe(
         map((response) => {
-            const avatarsObj: {[id: string]: URL} = {}
+            const avatarsObj: IModifiedAvatar = {}
 
             response.forEach((avatar: IAvatar) => {
-                avatarsObj[avatar.id] = avatar.url;
+                avatarsObj[+avatar.id] = avatar.url;
             })
             return avatarsObj
         }),

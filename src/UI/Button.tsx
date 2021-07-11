@@ -17,17 +17,16 @@ const StyledButton = styled.button`
   padding: 10px;
   margin: 5px;
   font-weight: bold;
+  &:disabled {
+    cursor: auto;
+    box-shadow: none;
+    background-color: #dbd7d7;
+    color: #0b0909;
+  }
   @media (min-width: 768px) {
     cursor: pointer;
     &:hover {
       box-shadow: 2px 2px 10px inset #b7b4b4;
-    }
-
-    &:disabled {
-      cursor: auto;
-      box-shadow: none;
-      background-color: #dbd7d7;
-      color: #0b0909;
     }
   }
   ${props => {

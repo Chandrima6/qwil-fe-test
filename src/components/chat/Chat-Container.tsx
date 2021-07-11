@@ -1,7 +1,7 @@
 import Card from './../../UI/Card'
-import ChatList from "./Chat-List";
+import ChatList from "./Chat-List/Chat-List";
 import ChatDetails from "./Chat-Details";
-import Nav from "../Nav";
+import Nav from "../shared/Nav";
 import React, {useState} from "react";
 import {ChatListContextProvider} from "../../store/Chat-List-context";
 
@@ -23,6 +23,3 @@ const ChatContainer = () => {
 }
 
 export default ChatContainer
-
-// initially nav and chatlist will be there
-// when no chat selected, chatdetails will show a warning "no chat selected"
