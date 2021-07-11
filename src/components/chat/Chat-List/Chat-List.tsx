@@ -37,7 +37,10 @@ const ChatList = () => {
         <StyledList>
             {chatsValues.length ?
                 chatsValues.map(chat => {
-                    return <StyledListItem id={chat.id} key={chat.id} onClick={chatSelectHandler} className={chat.selected ? 'active': ''}>
+                    return <StyledListItem id={chat.id}
+                                           key={chat.id}
+                                           onClick={chatSelectHandler}
+                                           className={chat.selected ? 'active': ''}>
                         <div className={styles['chat-content']} >
                             <img src={chat.message.authorUrl} alt="author"/>
                             <div className={styles['chat-details']}>
