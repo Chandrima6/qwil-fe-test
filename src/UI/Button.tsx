@@ -11,6 +11,7 @@ type ButtonProps = {
 
 const StyledButton = styled.button`
   display: flex;
+  justify-content: center;
   border: 1px solid #0b0909;
   border-radius: 5px;
   padding: 10px;

@@ -14,8 +14,25 @@ export const StyledList = styled.ul`
 export const StyledListItem = styled.li`
   list-style-type: none;
   border-bottom: 1px solid darkslategrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   padding: 5px;
   p {
-    margin: 2px;
+    margin: 2px 0;
+  }
+  img {
+    width: 20%;
+    border-radius: 50%;
+  }
+  &.active {
+    img {
+      border: 2px solid hotpink;
+    }
+  }
+  @media(min-width: 768px) {
+    flex-direction: row;
+    cursor: pointer;
   }
 `

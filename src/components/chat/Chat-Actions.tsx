@@ -18,7 +18,7 @@ const ChatActions: React.FC<ChatActionProps> = (props) => {
 
     return <div className={styles['chat-actions']}>
         <Dropdown id="chat-state" value={chatState} onChange={selectChatTypeListener} options={CHAT_TYPE}></Dropdown>
-        <Button type="button" name="new-chat" clickHandler={startNewChatHandler}>New Chat</Button>
+        <Button type="button" name="new-chat" clickHandler={startNewChatHandler} disabled>New Chat</Button>
     </div>
 }
 

@@ -1,0 +1,14 @@
+.chat-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex: 1 0 20%;
+}
+.chat-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+.chat-details h2 {
+    margin: 0px;
+}
