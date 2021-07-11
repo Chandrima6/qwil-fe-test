@@ -7,13 +7,8 @@ import {IAvatar, IModifiedAvatar} from "../models/avatar.model";
 
 export const chatsObservable = ajax.getJSON<IChat[]>(BASE_URL_DEVELOP + '/chats')
     .pipe(
-        map((response) => {
-            console.log(response)
-            return response
-        }),
-        catchError(error => {
-            return of(error)
-        })
+        map((response) => response),
+        catchError(error => of(error))
     )
 
 export const avatarsObservable: Observable<IModifiedAvatar> = ajax.getJSON<IAvatar[]>(BASE_URL_DEVELOP + '/avatars')

@@ -1,13 +1,13 @@
 import React, {useContext, useEffect, MouseEvent} from "react";
 import ChatActions from "../Chat-Actions/Chat-Actions";
-import {StyledList, StyledListItem} from "../../../UI/List";
+import {StyledListItem, StyledList } from "../../../UI/List";
 import Card from "../../../UI/Card";
 import ChatListContext from "../../../store/Chat-List-context";
 import styles from './Chat-List.module.css'
 import {computeDate} from "../../../utils/date-formatter";
 
 const ChatList = () => {
-    const {chats, filterChat} = useContext(ChatListContext)
+    const {chats, filterChat, updateChat} = useContext(ChatListContext)
 
     useEffect(() => {
         filterChat({query: 'all'})
@@ -15,13 +15,20 @@ const ChatList = () => {
 
     const chatActionHandler = (action: {type: 'filter' | 'add', payload: string}) => {
         if (action.type === 'filter') {
+            resetFocus()
             filterChat({query: action.payload})
         }
     }
 
     const chatRowSelectHandler = (event: MouseEvent<HTMLLIElement>) => {
-        console.log(event.currentTarget.value)
-        // TODO: use forwardRef and imperativeHandle to focus the list item
+        resetFocus()
+        chats[event.currentTarget.id].selected = true;
+        updateChat(chats)
+    }
+
+    const resetFocus = () => {
+        Object.values(chats).forEach(chat => chat.selected = false)
+        updateChat(chats)
     }
 
     return <Card width="30%">
@@ -29,8 +36,8 @@ const ChatList = () => {
         <StyledList>
             {Object.values(chats).length ?
                 Object.values(chats).map(chat => {
-                    return <StyledListItem key={chat.id} onClick={chatRowSelectHandler}>
-                        <div className={styles['chat-content']}>
+                    return <StyledListItem id={chat.id} key={chat.id} onClick={chatRowSelectHandler} className={chat.selected ? 'active': ''}>
+                        <div className={styles['chat-content']} >
                             <img src={chat.message.authorUrl} alt="author"/>
                             <div className={styles['chat-details']}>
                                 <h2>{chat.title}</h2>

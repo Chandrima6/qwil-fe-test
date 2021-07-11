@@ -12,6 +12,7 @@ import {IModifiedAvatar} from "../models/avatar.model";
 const ChatListContext = React.createContext<ChatListContextInterface>({
     chats: {},
     filterChat: () => {},
+    updateChat: () => {}
 });
 let chatListInitialState: IModifiedChat = {}
 
@@ -54,10 +55,12 @@ export const ChatListContextProvider: React.FC<ChatListContextProviderProps> = (
     const [chatList, chatListActionDispatcher] = useReducer(chatListReducer, chatListInitialState);
 
     const filterChat = (filter:{query: string}) => chatListActionDispatcher({type: 'filter-chat-list', payload: {filter: filter}})
+    const updateChat = (chats: IModifiedChat) => chatListActionDispatcher({type: 'update-chat-list', payload: {data: chats}})
 
     return <ChatListContext.Provider value={{
         chats: chatList,
         filterChat,
+        updateChat
     }}>{children}
     </ChatListContext.Provider>
 }

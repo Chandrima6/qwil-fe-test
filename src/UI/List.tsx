@@ -19,20 +19,23 @@ export const StyledListItem = styled.li`
   justify-content: space-between;
   align-items: flex-start;
   padding: 5px;
+
   p {
     margin: 2px 0;
   }
+
   img {
     width: 20%;
     border-radius: 50%;
   }
+
   &.active {
-    img {
-      border: 2px solid hotpink;
-    }
+    background-color: #dda1b6;
   }
-  @media(min-width: 768px) {
+
+  @media (min-width: 768px) {
     flex-direction: row;
     cursor: pointer;
   }
 `
+
