@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, MouseEvent} from "react";
 import ChatActions from "./Chat-Actions";
 import {StyledList, StyledListItem} from "../../UI/List";
 import Card from "../../UI/Card";
@@ -20,6 +20,10 @@ const ChatList = () => {
         }
     }
 
+    const chatRowSelectHandler = (event: MouseEvent<HTMLLIElement>) => {
+        console.log(event.currentTarget.value)
+    }
+
     const computeDate = (timestamp: number) => {
         const time = new Date();
         return time.toLocaleString('en-US', {
@@ -33,12 +37,12 @@ const ChatList = () => {
             hour12: true
         })
     }
-
+    // TODO: use forwardRef and imperativeHandle to focus the list item
     return <Card width="30%">
         <ChatActions onAction={chatActionHandler}></ChatActions>
         <StyledList>
             {Object.values(chats).map(chat => {
-                return <StyledListItem key={chat.id}>
+                return <StyledListItem key={chat.id} onClick={chatRowSelectHandler}>
                     <div className={styles['chat-content']}>
                         <img src={chat.message.authorUrl} alt="author"/>
                         <div className={styles['chat-details']}>
