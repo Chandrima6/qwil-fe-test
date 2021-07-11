@@ -8,6 +8,7 @@ import {computeDate} from "../../../utils/date-formatter";
 
 const ChatList = () => {
     const {chats, filterChat, updateChat} = useContext(ChatListContext)
+    const chatsValues = Object.values(chats);
 
     useEffect(() => {
         filterChat({query: 'all'})
@@ -15,28 +16,28 @@ const ChatList = () => {
 
     const chatActionHandler = (action: {type: 'filter' | 'add', payload: string}) => {
         if (action.type === 'filter') {
-            resetFocus()
+            chatResetFocus()
             filterChat({query: action.payload})
         }
     }
 
-    const chatRowSelectHandler = (event: MouseEvent<HTMLLIElement>) => {
-        resetFocus()
+    const chatSelectHandler = (event: MouseEvent<HTMLLIElement>) => {
+        chatResetFocus()
         chats[event.currentTarget.id].selected = true;
         updateChat(chats)
     }
 
-    const resetFocus = () => {
-        Object.values(chats).forEach(chat => chat.selected = false)
+    const chatResetFocus = () => {
+        chatsValues.forEach(chat => chat.selected = false)
         updateChat(chats)
     }
 
     return <Card width="30%">
         <ChatActions onAction={chatActionHandler}></ChatActions>
         <StyledList>
-            {Object.values(chats).length ?
-                Object.values(chats).map(chat => {
-                    return <StyledListItem id={chat.id} key={chat.id} onClick={chatRowSelectHandler} className={chat.selected ? 'active': ''}>
+            {chatsValues.length ?
+                chatsValues.map(chat => {
+                    return <StyledListItem id={chat.id} key={chat.id} onClick={chatSelectHandler} className={chat.selected ? 'active': ''}>
                         <div className={styles['chat-content']} >
                             <img src={chat.message.authorUrl} alt="author"/>
                             <div className={styles['chat-details']}>
