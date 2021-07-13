@@ -7,6 +7,7 @@ type DropdownProps = {
     label?: string,
     options: OptionsProps[],
     value: string,
+    'data-testid': string,
     onChange: (value: string) => void
 }
 type OptionsProps = {
@@ -32,7 +33,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
     }
     return <StyledFormControl>
         <label htmlFor={id}>{label}</label>
-        <select id={id} value={dropdownValue} onChange={changeInputValueListener}>
+        <select id={id} value={dropdownValue} onChange={changeInputValueListener} data-testid={props['data-testid']}>
             {options.map(option => <option key={option.id} value={option.value}>{option.value}</option>)}
         </select>
     </StyledFormControl>

@@ -20,12 +20,13 @@ export const StyledListItem = styled.li`
   align-items: flex-start;
   padding: 5px;
 
-  p {
+  p, h3 {
     margin: 2px 0;
   }
 
   img {
-    width: 20%;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
   }
 

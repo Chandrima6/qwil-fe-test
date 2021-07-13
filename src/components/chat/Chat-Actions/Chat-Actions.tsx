@@ -6,6 +6,7 @@ import styles from "./Chat-Actions.module.css"
 
 type ChatActionProps = {
     onAction: (action: {type: 'filter' | 'add', payload: string}) => void
+    'data-testid': string
 }
 
 const ChatActions: React.FC<ChatActionProps> = (props) => {
@@ -16,7 +17,14 @@ const ChatActions: React.FC<ChatActionProps> = (props) => {
     const startNewChatHandler = (event: MouseEvent<HTMLButtonElement>) => {}
 
     return <div className={styles['chat-actions']}>
-        <Dropdown id="chat-state" value={chatState} onChange={selectChatTypeListener} options={CHAT_TYPE}></Dropdown>
+        <Dropdown
+            id="chat-state"
+            value={chatState}
+            onChange={selectChatTypeListener}
+            options={CHAT_TYPE}
+            data-testid={props['data-testid']}
+            >
+        </Dropdown>
         <Button type="button" name="new-chat" clickHandler={startNewChatHandler} disabled>New Chat</Button>
     </div>
 }

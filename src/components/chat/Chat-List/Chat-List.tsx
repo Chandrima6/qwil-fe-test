@@ -6,7 +6,11 @@ import ChatListContext from "../../../store/Chat-List-context";
 import styles from './Chat-List.module.css'
 import {computeDate} from "../../../utils/date-formatter";
 
-const ChatList = () => {
+type ChatListProps = {
+    showChatDetails: () => void
+}
+
+const ChatList: React.FC<ChatListProps> = (props) => {
     const {chats, filterChat, updateChat} = useContext(ChatListContext)
     const chatsValues = Object.values(chats);
 
@@ -25,6 +29,7 @@ const ChatList = () => {
         chatResetFocus()
         chats[event.currentTarget.id].selected = true;
         updateChat(chats)
+        props.showChatDetails()
     }
 
     const chatResetFocus = () => {
@@ -32,19 +37,20 @@ const ChatList = () => {
         updateChat(chats)
     }
 
-    return <Card width="30%">
-        <ChatActions onAction={chatActionHandler}></ChatActions>
+    return <Card width="50%">
+        <ChatActions onAction={chatActionHandler} data-testid="dropdown-filter"/>
         <StyledList>
             {chatsValues.length ?
                 chatsValues.map(chat => {
                     return <StyledListItem id={chat.id}
                                            key={chat.id}
                                            onClick={chatSelectHandler}
-                                           className={chat.selected ? 'active': ''}>
+                                           className={chat.selected ? 'active': ''}
+                                           data-testid="list-item">
                         <div className={styles['chat-content']} >
                             <img src={chat.message.authorUrl} alt="author"/>
                             <div className={styles['chat-details']}>
-                                <h2>{chat.title}</h2>
+                                <h3>{chat.title}</h3>
                                 <p>{chat.message.authorName}</p>
                                 <p>{chat.message.content}</p>
                             </div>

@@ -6,7 +6,8 @@ type ButtonProps = {
     name: string,
     disabled?: boolean,
     clickHandler: (event: MouseEvent<HTMLButtonElement>) => void,
-    children: React.ReactNode
+    children: React.ReactNode,
+    'data-testid'?: string
 }
 
 const StyledButton = styled.button`
@@ -45,14 +46,15 @@ const StyledButton = styled.button`
 `
 
 
-const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = (props) => {
+    const {
         type,
         name,
         children,
         clickHandler,
-        disabled = false
-    }) => {
-    return <StyledButton type={type} name={name} onClick={clickHandler} disabled={disabled}>{children}</StyledButton>
+        disabled = false,
+    } = props
+    return <StyledButton type={type} name={name} onClick={clickHandler} disabled={disabled} data-testid={props['data-testid']}>{children}</StyledButton>
 }
 
 

@@ -1,9 +1,9 @@
-import Card from './../../UI/Card'
-import ChatList from "./Chat-List/Chat-List";
-import ChatDetails from "./Chat-Details";
-import Nav from "../shared/Nav";
+import Card from '../../../UI/Card'
+import ChatList from "../Chat-List/Chat-List";
+import ChatDetails from "../Chat-Details";
+import Nav from "../../shared/Nav";
 import React, {useState} from "react";
-import {ChatListContextProvider} from "../../store/Chat-List-context";
+import {ChatListContextProvider} from "../../../store/Chat-List-context";
 
 const ChatContainer = () => {
     const [showList, setShowList] = useState(false);
@@ -13,11 +13,14 @@ const ChatContainer = () => {
             setShowList((prevState) => !prevState)
         }
     }
+
+    const showChatDetails = () => setShowDetails(true)
+
     return <Card width="auto" direction="row">
-        <Nav onClickNavItem={clickNavItemHandler}/>
+        <Nav onClickNavItem={clickNavItemHandler} data-testid="navigation"/>
         <ChatListContextProvider>
-            {showList && <ChatList />}
-            {showDetails && <ChatDetails />}
+            {showList && <ChatList showChatDetails={showChatDetails}/>}
+            {showDetails && <ChatDetails data-testid="chat-details"/>}
         </ChatListContextProvider>
     </Card>
 }
