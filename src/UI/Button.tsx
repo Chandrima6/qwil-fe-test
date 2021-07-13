@@ -1,6 +1,7 @@
 import React, {MouseEvent} from "react";
 import styled, {css} from 'styled-components';
 
+
 type ButtonProps = {
     type: 'submit'|'reset'|'button',
     name: string,
@@ -45,6 +46,33 @@ const StyledButton = styled.button`
 }}
 `
 
+const StyledIconButton = styled(StyledButton)`
+  border: none;
+  border-radius: 5px;
+  padding: 0px;
+  &:disabled {
+    background-color: transparent;
+  }
+  & svg {
+    height: 3em;
+    width: 3em;
+    color: #000;
+  }
+  ${props => {
+    if (props.type === 'submit') {
+        return css`
+        background-color: transparent;
+      `
+    } else {
+        return css`
+        background-color: transparent;
+      `
+    }
+}}
+`
+
+
+
 
 const Button: React.FC<ButtonProps> = (props) => {
     const {
@@ -54,7 +82,32 @@ const Button: React.FC<ButtonProps> = (props) => {
         clickHandler,
         disabled = false,
     } = props
-    return <StyledButton type={type} name={name} onClick={clickHandler} disabled={disabled} data-testid={props['data-testid']}>{children}</StyledButton>
+    return <StyledButton
+        type={type}
+        name={name}
+        onClick={clickHandler}
+        disabled={disabled}
+        data-testid={props['data-testid']}>
+        {children}
+    </StyledButton>
+}
+
+export const IconButton: React.FC<ButtonProps> = (props) => {
+    const {
+        type,
+        name,
+        children,
+        clickHandler,
+        disabled = false,
+    } = props
+    return <StyledIconButton
+        type={type}
+        name={name}
+        onClick={clickHandler}
+        disabled={disabled}
+        data-testid={props['data-testid']}>
+        {children}
+    </StyledIconButton>
 }
 
 
