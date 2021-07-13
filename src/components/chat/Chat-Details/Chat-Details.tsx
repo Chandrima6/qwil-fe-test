@@ -1,7 +1,7 @@
-import Card from "../../UI/Card";
+import Card from "../../../UI/Card";
 import {useContext, useEffect, useState} from "react";
-import ChatListContext from "../../store/Chat-List-context";
-import {IModifiedChat} from "../../models/chat.model";
+import ChatListContext from "../../../store/Chat-List-context";
+import {IModifiedChat} from "../../../models/chat.model";
 
 type ChatDetailsProps = {
     'data-testid': string

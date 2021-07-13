@@ -16,5 +16,5 @@ const Nav: React.FC<NavProps> = (props) => {
 }
 export default Nav
 
-// TODO: add icon inside card which toggles the chat list for now adding button
+// TODO: add icon which toggles the chat list for now adding button
 

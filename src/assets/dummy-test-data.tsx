@@ -41,3 +41,38 @@ export const emptyChatListContextValMock: ChatListContextInterface = {
     filterChat: jest.fn(),
     updateChat: jest.fn()
 }
+
+export const chatListContextValMockWithSelected: ChatListContextInterface = {
+    chats: {
+        "1": {
+            "id": "1",
+            "title": "Invoice - 18633",
+            "message": {
+                "authorName": "Carrie Edwards",
+                "authorId": "2",
+                "authorUrl": "",
+                "content": "Just checking it over now.",
+                "timestamp": 1620155003723
+            },
+            "state": "archived",
+            "participants": [],
+            "selected": true
+        },
+        "2": {
+            "id": "2",
+            "title": "Investment Strategy",
+            "message": {
+                "authorName": "Barry Edwards",
+                "authorId": "3",
+                "authorUrl": "",
+                "content": "Thanks. I'll call you",
+                "timestamp": 1620155003723
+            },
+            "state": "active",
+            "participants": [],
+            "selected": false
+        }
+    },
+    filterChat: jest.fn(),
+    updateChat: jest.fn()
+}

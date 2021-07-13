@@ -4,7 +4,6 @@ import userEvent from "@testing-library/user-event";
 import ChatList from "./Chat-List";
 import ChatListContext from "../../../store/Chat-List-context";
 import {chatListContextValMock, emptyChatListContextValMock} from "../../../assets/dummy-test-data";
-import {IModifiedChat} from "../../../models/chat.model";
 
 describe('Chat List component', () => {
     beforeEach(() => {
@@ -20,21 +19,21 @@ describe('Chat List component', () => {
         expect(chatRows.length).toEqual(2)
     })
 
-    test('renders only active chats by using the filter', () => {
+    test('renders only active chats by using the filter "Active"', () => {
         const dropdown = screen.getByTestId('dropdown-filter')
         userEvent.selectOptions(dropdown, 'Active')
 
         expect(chatListContextValMock.filterChat).toHaveBeenCalledWith({query: 'Active'})
     })
 
-    test('renders only archived chats by using the filter', () => {
+    test('renders only archived chats by using the filter "Archived"', () => {
         const dropdown = screen.getByTestId('dropdown-filter')
         userEvent.selectOptions(dropdown, 'Archived')
 
         expect(chatListContextValMock.filterChat).toHaveBeenCalledWith({query: 'Archived'})
     })
 
-    test('renders only all chats by using the filter', () => {
+    test('renders all chats by using the filter "All"', () => {
         const dropdown = screen.getByTestId('dropdown-filter')
         userEvent.selectOptions(dropdown, 'All')
 
@@ -85,7 +84,7 @@ describe('Chat list component', () => {
             </ChatListContext.Provider>
         )
     })
-    test('', () => {
+    test('when rendered, clicked on a chat item, should update the selected property of the chat Object to true', () => {
         const chatRows = screen.queryAllByTestId("list-item");
         userEvent.click(chatRows[0])
         expect(chatListContextValMock.chats[chatRows[0].id].selected).toEqual(true)

@@ -25,7 +25,7 @@ const ChatActions: React.FC<ChatActionProps> = (props) => {
             data-testid={props['data-testid']}
             >
         </Dropdown>
-        <Button type="button" name="new-chat" clickHandler={startNewChatHandler} disabled>New Chat</Button>
+        <Button type="button" name="new-chat" clickHandler={startNewChatHandler} data-testid="add-chat" disabled>New Chat</Button>
     </div>
 }
 

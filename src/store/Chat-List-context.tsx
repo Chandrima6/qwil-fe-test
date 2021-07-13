@@ -24,6 +24,7 @@ export const ChatListContextProvider: React.FC<ChatListContextProviderProps> = (
             .subscribe(
                 (data: [IChat[], IModifiedAvatar]) => {
                     // TODO: handle fork join error scenario in a better way
+                    console.log(data);
                     if (data[0].length && data[1]) {
                         chatListInitialState = chatListMapper(data[0], data[1])
                     }

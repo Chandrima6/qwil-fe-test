@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 
 describe('Chat Container component', () => {
     beforeEach(() => {
+        const showChatDetailsMock = jest.fn()
         render(<ChatContainer />)
     })
 
@@ -27,5 +28,6 @@ describe('Chat Container component', () => {
         userEvent.click(toggleButton)
         expect(filterDropdown).not.toBeInTheDocument()
     })
+
 
 })

@@ -1,6 +1,6 @@
 import Card from '../../../UI/Card'
 import ChatList from "../Chat-List/Chat-List";
-import ChatDetails from "../Chat-Details";
+import ChatDetails from "../Chat-Details/Chat-Details";
 import Nav from "../../shared/Nav";
 import React, {useState} from "react";
 import {ChatListContextProvider} from "../../../store/Chat-List-context";
