@@ -1,6 +1,6 @@
 import {IconButton} from "../../UI/Button";
 import React, {MouseEvent} from "react";
-import {HiOutlineChatAlt2} from "react-icons/all";
+import {IoChatbubblesOutline} from "react-icons/io5";
 
 type NavProps = {
     onClickNavItem: (navItemName: string) => void,
@@ -15,10 +15,8 @@ const Nav: React.FC<NavProps> = (props) => {
                 name="toggle-chat-list"
                 clickHandler={navItemClickHandler}
                 data-testid={props['data-testid']}>
-            <HiOutlineChatAlt2 />
+            <IoChatbubblesOutline />
         </IconButton>
 }
 export default Nav
-
-// TODO: add icon which toggles the chat list for now adding button
 

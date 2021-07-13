@@ -37,7 +37,7 @@ const ChatList: React.FC<ChatListProps> = (props) => {
         updateChat(chats)
     }
 
-    return <Card width="50%">
+    return <Card width="50%" backgroundColor="#b96666" color="#ffffff">
         <ChatActions onAction={chatActionHandler} data-testid="dropdown-filter"/>
         <StyledList>
             {chatsValues.length ?

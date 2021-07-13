@@ -17,4 +17,8 @@
     align-self: center;
 }
 
-/*TODO: make the parent container height fix and only make the list and details card scrollable */
+/*TODO: want to make the parent container height fix and only make the list and details card scrollable */
+
+/*TODO: want to make the list expand contract in mobile to give the chat details a full view or
+    can overlay the chat details on the chat list when a chat is clicked
+*/

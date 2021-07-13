@@ -32,11 +32,18 @@ export const StyledListItem = styled.li`
 
   &.active {
     background-color: #dda1b6;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   @media (min-width: 768px) {
     flex-direction: row;
     cursor: pointer;
+    &:hover {
+      background-color: #dda1b6;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
   }
 `
 

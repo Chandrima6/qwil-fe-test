@@ -50,25 +50,41 @@ const StyledIconButton = styled(StyledButton)`
   border: none;
   border-radius: 5px;
   padding: 0px;
+
+  &:hover {
+    box-shadow: none;
+  }
+
   &:disabled {
     background-color: transparent;
+    svg {
+      color: #acabab;
+    }
   }
+
   & svg {
     height: 3em;
     width: 3em;
-    color: #000;
+    color: #280202;
   }
+  
+  &:enabled {
+    svg:focus, svg:hover {
+      color: #de0d0d;
+    }
+  }
+
   ${props => {
     if (props.type === 'submit') {
-        return css`
+      return css`
         background-color: transparent;
       `
     } else {
-        return css`
+      return css`
         background-color: transparent;
       `
     }
-}}
+  }}
 `
 
 
