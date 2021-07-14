@@ -2,8 +2,10 @@ import Card from '../../../UI/Card'
 import ChatList from "../Chat-List/Chat-List";
 import ChatDetails from "../Chat-Details/Chat-Details";
 import Nav from "../../shared/Nav";
-import React, {useState} from "react";
+import React, {useState, Fragment} from "react";
 import {ChatListContextProvider} from "../../../store/Chat-List-context";
+import src from '../../../assets/qwill-messenger-logo.png'
+import styles from './Chat-Container.module.css'
 
 const ChatContainer = () => {
     const [showList, setShowList] = useState(false);
@@ -16,13 +18,16 @@ const ChatContainer = () => {
 
     const showChatDetails = () => setShowDetails(true)
 
-    return <Card width="auto" direction="row">
-        <Nav onClickNavItem={clickNavItemHandler} data-testid="navigation"/>
-        <ChatListContextProvider>
-            {showList && <ChatList showChatDetails={showChatDetails}/>}
-            {showDetails && <ChatDetails data-testid="chat-details"/>}
-        </ChatListContextProvider>
-    </Card>
+    return <Fragment>
+        {!showList && !showDetails && <h3 className={styles['header']}><img src={src} alt="company-logo-name" /></h3>}
+        <Card width="auto" direction="row">
+            <Nav onClickNavItem={clickNavItemHandler} data-testid="navigation"/>
+            <ChatListContextProvider>
+                {showList && <ChatList showChatDetails={showChatDetails}/>}
+                {showDetails && <ChatDetails data-testid="chat-details"/>}
+            </ChatListContextProvider>
+        </Card>
+    </Fragment>
 }
 
 export default ChatContainer

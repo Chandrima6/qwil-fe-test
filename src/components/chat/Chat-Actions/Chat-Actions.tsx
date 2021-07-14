@@ -1,8 +1,9 @@
 import React, {MouseEvent} from "react";
 import {CHAT_TYPE} from "../../../constants/constants";
 import Dropdown from "../../../UI/Dropdown";
-import Button from "../../../UI/Button";
+import {IconButton} from "../../../UI/Button";
 import styles from "./Chat-Actions.module.css"
+import {IoCreateOutline} from "react-icons/io5";
 
 type ChatActionProps = {
     onAction: (action: {type: 'filter' | 'add', payload: string}) => void
@@ -25,7 +26,7 @@ const ChatActions: React.FC<ChatActionProps> = (props) => {
             data-testid={props['data-testid']}
             >
         </Dropdown>
-        <Button type="button" name="new-chat" clickHandler={startNewChatHandler} data-testid="add-chat" disabled>New Chat</Button>
+        <IconButton type="button" name="new-chat" clickHandler={startNewChatHandler} data-testid="add-chat" disabled><IoCreateOutline /></IconButton>
     </div>
 }
 
