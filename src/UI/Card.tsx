@@ -26,7 +26,7 @@ const StyledCard = styled.section`
     align-items: flex-start;
   }
 `
-
+// TODO: need to merge all css properties in one object "styles" rather than passing all properties individually in props
 const Card: React.FC<CardProps> = ({
                                        width,
                                        backgroundColor = '#fecfcf',

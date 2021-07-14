@@ -39,7 +39,7 @@ const ChatList: React.FC<ChatListProps> = (props) => {
 
     return <Card width="50%" backgroundColor="#b96666" color="#ffffff">
         <ChatActions onAction={chatActionHandler} data-testid="dropdown-filter"/>
-        <StyledList>
+        <StyledList data-testid="list">
             {chatsValues.length ?
                 chatsValues.map(chat => {
                     return <StyledListItem id={chat.id}
@@ -50,7 +50,7 @@ const ChatList: React.FC<ChatListProps> = (props) => {
                         <div className={styles['chat-content']} >
                             <img src={chat.message.authorUrl} alt="author"/>
                             <div className={styles['chat-details']}>
-                                <h3>{chat.title}</h3>
+                                <h3 data-testid="list-item-title">{chat.title}</h3>
                                 <p>{chat.message.authorName}</p>
                                 <p>{chat.message.content}</p>
                             </div>
@@ -58,7 +58,7 @@ const ChatList: React.FC<ChatListProps> = (props) => {
                         <p>{computeDate(chat.message.timestamp)}</p>
                     </StyledListItem>
                 }) :
-                <StyledListItem>
+                <StyledListItem data-testid="list-item">
                     <h3 className={styles['warn']}>Start your first chat with Qwil !!!!</h3>
                 </StyledListItem>
             }
