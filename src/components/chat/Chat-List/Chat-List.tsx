@@ -36,7 +36,7 @@ const ChatList: React.FC<ChatListProps> = (props) => {
         chatsValues.forEach(chat => chat.selected = false)
         updateChat(chats)
     }
-
+    // TODO: need to add feature to show the most recent chat in the list
     return <Card width="50%" backgroundColor="#b96666" color="#ffffff">
         <ChatActions onAction={chatActionHandler} data-testid="dropdown-filter"/>
         <StyledList data-testid="list">
