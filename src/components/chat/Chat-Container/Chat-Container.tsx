@@ -19,14 +19,21 @@ const ChatContainer = () => {
     const showChatDetails = () => setShowDetails(true)
 
     return <Fragment>
-        {!showList && !showDetails && <h3 className={styles['header']}><img src={src} alt="company-logo-name" /></h3>}
-        <Card width="auto" direction="row">
+        <header className={styles['header-container']}>
+            <h3 className={styles['header-logo']}>
+                <img src={src} alt="company-logo-name" />
+            </h3>
             <Nav onClickNavItem={clickNavItemHandler} data-testid="navigation"/>
-            <ChatListContextProvider>
-                {showList && <ChatList showChatDetails={showChatDetails}/>}
-                {showDetails && <ChatDetails data-testid="chat-details"/>}
-            </ChatListContextProvider>
-        </Card>
+        </header>
+        {
+            (showList || showDetails) &&
+            <Card width="auto" direction="row">
+                <ChatListContextProvider>
+                    {showList && <ChatList showChatDetails={showChatDetails}/>}
+                    {showDetails && <ChatDetails data-testid="chat-details"/>}
+                </ChatListContextProvider>
+            </Card>
+        }
     </Fragment>
 }
 

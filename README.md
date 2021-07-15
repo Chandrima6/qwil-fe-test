@@ -33,3 +33,15 @@ Available endpoints are:
 - /GET chats which returns a list of chats
 - /GET avatars which returns a list of avatars.
 - /GET avatars/${avatarId} returns an avatar object including a URL.
+
+## Solution
+
+## steps to run the code
+- yarn install
+- npm start
+- yarn api
+- unit test: npm run test:units
+- e2e test: num run test:e2e
+
+There are various TODO comments across the code base, denoting the future improvements would like to make.
+

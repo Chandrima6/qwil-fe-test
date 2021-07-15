@@ -57,20 +57,21 @@ const StyledIconButton = styled(StyledButton)`
 
   &:disabled {
     background-color: transparent;
+
     svg {
       color: #acabab;
     }
   }
 
   & svg {
-    height: 3em;
-    width: 3em;
-    color: #280202;
+    height: 2.5em;
+    width: 2.5em;
+    color: #518993;
   }
-  
+
   &:enabled {
     svg:focus, svg:hover {
-      color: #de0d0d;
+      color: #a1eae7;
     }
   }
 
