@@ -8,6 +8,10 @@
     border-bottom-left-radius: 5px;
     padding: 0 25px;
 }
+.main {
+    display: flex;
+    flex-direction: column;
+}
 .header-logo {
     display: flex;
     margin: 0px;
@@ -18,5 +22,10 @@
 @media (min-width: 768px) {
     .header-logo img {
         width:15%;
+    }
+    .main {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
     }
 }

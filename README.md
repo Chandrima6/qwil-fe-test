@@ -37,11 +37,12 @@ Available endpoints are:
 ## Solution
 
 ### Steps to run the code
-- Install dependencies:: yarn install
-- Run code:: npm start
-- API:: yarn api
-- Unit test:: npm run test:units
-- e2e test:: num run test:e2e
+- **Install dependencies::** yarn install
+- **Run code::** npm start
+- **Run code and start API::** npm run startWithAPI
+- **API::** yarn api
+- **Unit test::** npm run test:units
+- **e2e test::** num run test:e2e
 
 ### User Flow 1
 - on load shows Home page having logo and a toggle icon

@@ -24,6 +24,7 @@
   "scripts": {
     "api": "json-server --watch db.json --port 3001",
     "start": "react-scripts start",
+    "startWithAPI": "json-server --watch db.json --port 3001 & react-scripts start",
     "build": "react-scripts build",
     "test:units": "react-scripts test",
     "test:e2e": "cypress open",

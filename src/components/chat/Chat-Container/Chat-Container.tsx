@@ -30,12 +30,12 @@ const ChatContainer = () => {
         </header>
         {
             (showList || showDetails) &&
-            <Card width="auto" direction="row">
+            <main className={styles.main}>
                 <ChatListContextProvider>
                     {showList && <ChatList showChatDetails={showChatDetails}/>}
                     {showDetails && <ChatDetails data-testid="chat-details"/>}
                 </ChatListContextProvider>
-            </Card>
+            </main>
         }
     </Fragment>
 }
