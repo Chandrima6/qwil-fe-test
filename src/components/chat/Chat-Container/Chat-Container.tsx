@@ -18,6 +18,9 @@ const ChatContainer = () => {
 
     const showChatDetails = () => setShowDetails(true)
 
+    // TODO: In future would like the app to have the Router implemented
+
+
     return <Fragment>
         <header className={styles['header-container']}>
             <h3 className={styles['header-logo']}>

@@ -36,12 +36,82 @@ Available endpoints are:
 
 ## Solution
 
-## steps to run the code
-- yarn install
-- npm start
-- yarn api
-- unit test: npm run test:units
-- e2e test: num run test:e2e
+### Steps to run the code
+- Install dependencies:: yarn install
+- Run code:: npm start
+- API:: yarn api
+- Unit test:: npm run test:units
+- e2e test:: num run test:e2e
 
-There are various TODO comments across the code base, denoting the future improvements would like to make.
+### User Flow 1
+- on load shows Home page having logo and a toggle icon
+- click on the toggle icon, should see a list of chats with few basic details for each chat
+- you should see a visual indication (a background color change) when you hover over a chat 
+- with just chat list opened, if you click on toggle icon, you should go back to home page 
+
+### User Flow 2
+- click on a chat item in the chat list, you should see another section opening up where for now just the chat title is displayed
+- please note the background color change to denote the chat selected state
+- new chat icon disabled for now
+- to filter the chat list, click on either "Active" or "Archived".
+- the chat list should be filtered.
+- you should not see the previous chat selected state anymore as the data changed
+- but in the chat details, the last selected chat title will stay
+
+### User Flow 3
+- with chat list and details opened, if you now click on the toggle icon, chat list should disappear but the user will be able to view the chat details in full screen. 
+- before clicking on toggle icon, if any chat was selected, that state will still be there when the chat list is again opened which you click on the toggle icon again.
+- before clicking on toggle icon, if any the chat list was filtered by either "Active" or "Archived", that filter data will be lost when you re-open the chat list by clicking on the toggle icon. [This particular behaviour may be different based on personal preference, so may be in future can hold filter state when re-opening the chat list by clicking on toggle icon]
+
+
+### src Directory Tree
+````
+.
+├── App.css
+├── App.tsx
+├── UI
+│   ├── Button.tsx
+│   ├── Card.tsx
+│   ├── Dropdown.tsx
+│   └── List.tsx
+├── assets
+│   ├── dummy-test-data.tsx
+│   └── qwill-messenger-logo.png
+├── components
+│   ├── chat
+│   │   ├── Chat-Actions
+│   │   │   ├── Chat-Actions.module.css
+│   │   │   ├── Chat-Actions.test.tsx
+│   │   │   └── Chat-Actions.tsx
+│   │   ├── Chat-Container
+│   │   │   ├── Chat-Container.module.css
+│   │   │   ├── Chat-Container.test.tsx
+│   │   │   └── Chat-Container.tsx
+│   │   ├── Chat-Details
+│   │   │   ├── Chat-Details.test.tsx
+│   │   │   └── Chat-Details.tsx
+│   │   └── Chat-List
+│   │       ├── Chat-List.module.css
+│   │       ├── Chat-List.test.tsx
+│   │       └── Chat-List.tsx
+│   └── shared
+│       └── Nav.tsx
+├── constants
+│   └── constants.tsx
+├── index.css
+├── index.tsx
+├── models
+│   ├── avatar.model.tsx
+│   ├── chat-list-context.model.tsx
+│   ├── chat.model.tsx
+│   └── message.model.tsx
+├── react-app-env.d.ts
+├── reportWebVitals.ts
+├── services
+│   └── Chat-service.tsx
+├── setupTests.ts
+├── store
+│   └── Chat-List-context.tsx
+└── utils
+└── date-formatter.tsx
 
