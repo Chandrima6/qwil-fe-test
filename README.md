@@ -44,6 +44,12 @@ Available endpoints are:
 - **Unit test::** npm run test:units
 - **e2e test::** num run test:e2e
 
+### Dependencies
+- **CSS::** styled-components, CSS module, flex-box
+- **Typescript**
+- **Unit Test::** Jest, react-testing-library
+- **e2e Test::** Cypress, Javascript
+
 ### User Flow 1
 - on load shows Home page having logo and a toggle icon
 - click on the toggle icon, should see a list of chats with few basic details for each chat
